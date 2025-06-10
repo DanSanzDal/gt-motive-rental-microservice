@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- Desactivar TreatWarningsAsErrors específicamente para esta advertencia -->
+    <MSBuildWarningsAsErrors>$(MSBuildWarningsAsErrors);!NU1605</MSBuildWarningsAsErrors>
+    <NoWarn>$(NoWarn);NU1605</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Specs\**" />
+    <EmbeddedResource Remove="Specs\**" />
+    <None Remove="Specs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.30.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
+    <PackageReference Include="Mongo2Go" Version="3.1.3" />
+    <PackageReference Include="Respawn" />
+  </ItemGroup>  
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\GtMotive.Estimate.Microservice.Api\GtMotive.Estimate.Microservice.Api.csproj" />
+    <ProjectReference Include="..\..\..\src\GtMotive.Estimate.Microservice.Infrastructure\GtMotive.Estimate.Microservice.Infrastructure.csproj" />
+  </ItemGroup>
+  
+  <PropertyGroup>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+</Project>

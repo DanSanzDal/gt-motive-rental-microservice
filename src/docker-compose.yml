@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.runtime
+    container_name: gt-motive-estimate-api
+    ports:
+      - "8080:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - MongoDB__ConnectionString=mongodb://mongo:27017
+      - MongoDB__DatabaseName=EstimateDb
+    depends_on:
+      - mongo
+    networks:
+      - estimate-network
+
+  mongo:
+    image: mongo:latest
+    container_name: gt-motive-estimate-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - estimate-network
+    environment:
+      - MONGO_INITDB_DATABASE=EstimateDb
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: gt-motive-estimate-mongo-express
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=password
+    depends_on:
+      - mongo
+    networks:
+      - estimate-network
+
+networks:
+  estimate-network:
+    driver: bridge
+
+volumes:
+  mongo-data:

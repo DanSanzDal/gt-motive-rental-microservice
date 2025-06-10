@@ -1,0 +1,9 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0
+WORKDIR /diagnostic
+COPY . .
+RUN find . -type f -name "*.csproj" > /tmp/project_files.txt
+RUN find . -type d | grep -v obj | grep -v bin > /tmp/directories.txt
+RUN echo "=== PROYECTO FILES ===" && cat /tmp/project_files.txt
+RUN echo "=== DIRECTORIES ===" && cat /tmp/directories.txt
+RUN echo "=== CURRENT DIRECTORY ===" && pwd && ls -la
+CMD ["cat", "/tmp/project_files.txt"]

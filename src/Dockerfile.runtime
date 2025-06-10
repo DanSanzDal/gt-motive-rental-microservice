@@ -1,0 +1,10 @@
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /src
+COPY GtMotive.Estimate.Microservice.Host/bin/Release/net8.0/publish/ .
+ENV ASPNETCORE_ENVIRONMENT=Production
+ENV ASPNETCORE_URLS=http://+:80
+ENV MongoDB__ConnectionString=mongodb://mongo:27017
+ENV MongoDB__DatabaseName=EstimateDb
+EXPOSE 80
+ENTRYPOINT ["dotnet", "GtMotive.Estimate.Microservice.Host.dll"]
+

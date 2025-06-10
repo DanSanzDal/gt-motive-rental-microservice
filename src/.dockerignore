@@ -1,0 +1,22 @@
+# Directorios
+**/test/
+**/obj/
+**/out/
+**/.vs/
+**/.vscode/
+**/.idea/
+**/node_modules/
+**/TestResults/
+
+# Archivos
+**/*.user
+**/*.suo
+**/*.log
+**/*.DS_Store
+**/*.cache
+**/.git*
+**/.dockerignore
+**/Dockerfile*
+**/docker-compose*
+**/README.md
+**/LICENSE

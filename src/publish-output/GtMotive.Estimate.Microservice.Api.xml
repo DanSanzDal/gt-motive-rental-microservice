@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GtMotive.Estimate.Microservice.Api</name>
+    </assembly>
+    <members>
+        <member name="T:GtMotive.Estimate.Microservice.Api.Controllers.CustomersController">
+            <summary>
+            Controller for customer management operations.
+            </summary>
+        </member>
+        <member name="M:GtMotive.Estimate.Microservice.Api.Controllers.CustomersController.#ctor(GtMotive.Estimate.Microservice.ApplicationCore.UseCases.Customers.CreateCustomerUseCase)">
+            <summary>
+            Controller for customer management operations.
+            </summary>
+        </member>
+        <member name="M:GtMotive.Estimate.Microservice.Api.Controllers.CustomersController.CreateCustomer(GtMotive.Estimate.Microservice.Api.DTOs.Requests.CreateCustomerRequest)">
+            <summary>
+            Creates a new customer.
+            </summary>
+            <param name="request">Customer creation data</param>
+            <returns>Created customer information</returns>
+        </member>
+        <member name="T:GtMotive.Estimate.Microservice.Api.Controllers.RentalsController">
+            <summary>
+            Controller for rental management operations.
+            </summary>
+        </member>
+        <member name="M:GtMotive.Estimate.Microservice.Api.Controllers.RentalsController.#ctor(GtMotive.Estimate.Microservice.Domain.Rentals.IRentalRepository,GtMotive.Estimate.Microservice.Domain.Rentals.Services.RentalService)">
+            <summary>
+            Controller for rental management operations.
+            </summary>
+        </member>
+        <member name="M:GtMotive.Estimate.Microservice.Api.Controllers.RentalsController.CreateRental(GtMotive.Estimate.Microservice.Api.DTOs.Requests.CreateRentalRequest)">
+            <summary>
+            Creates a new rental.
+            </summary>
+            <param name="request">Rental creation data</param>
+            <returns>Created rental information</returns>
+        </member>
+        <member name="M:GtMotive.Estimate.Microservice.Api.Controllers.RentalsController.CompleteRental(System.String,GtMotive.Estimate.Microservice.Api.DTOs.Requests.CompleteRentalRequest)">
+            <summary>
+            Completes a rental.
+            </summary>
+            <param name="rentalId">Rental ID to complete</param>
+            <param name="request">Completion data</param>
+            <returns>Completed rental information</returns>
+        </member>
+        <member name="M:GtMotive.Estimate.Microservice.Api.Controllers.RentalsController.GetActiveRentals">
+            <summary>
+            Gets all active rentals.
+            </summary>
+            <returns>List of active rentals</returns>
+        </member>
+        <member name="M:GtMotive.Estimate.Microservice.Api.Controllers.RentalsController.GetRentalsByCustomer(System.String)">
+            <summary>
+            Gets rentals by customer ID.
+            </summary>
+            <param name="customerId">Customer ID</param>
+            <returns>List of customer rentals</returns>
+        </member>
+        <member name="T:GtMotive.Estimate.Microservice.Api.Controllers.VehiclesController">
+            <summary>
+            Controller for vehicle management operations.
+            </summary>
+        </member>
+        <member name="M:GtMotive.Estimate.Microservice.Api.Controllers.VehiclesController.#ctor">
+            <summary>
+            Controller for vehicle management operations.
+            </summary>
+        </member>
+        <member name="M:GtMotive.Estimate.Microservice.Api.Controllers.VehiclesController.CreateVehicle(GtMotive.Estimate.Microservice.Api.DTOs.Requests.CreateVehicleRequest)">
+            <summary>
+            Creates a new vehicle.
+            </summary>
+            <param name="request">Vehicle creation data</param>
+            <returns>Created vehicle information</returns>
+        </member>
+        <member name="M:GtMotive.Estimate.Microservice.Api.Controllers.VehiclesController.RentVehicle(System.String)">
+            <summary>
+            Rents a vehicle.
+            </summary>
+            <param name="vehicleId">Vehicle ID to rent</param>
+            <returns>Rent operation result</returns>
+        </member>
+        <member name="M:GtMotive.Estimate.Microservice.Api.Controllers.VehiclesController.ReturnVehicle(System.String)">
+            <summary>
+            Returns a rented vehicle.
+            </summary>
+            <param name="vehicleId">Vehicle ID to return</param>
+            <returns>Return operation result</returns>
+        </member>
+        <member name="M:GtMotive.Estimate.Microservice.Api.Controllers.VehiclesController.GetAvailableVehicles">
+            <summary>
+            Gets all available vehicles.
+            </summary>
+            <returns>List of available vehicles</returns>
+        </member>
+        <member name="P:GtMotive.Estimate.Microservice.Api.DTOs.Requests.CreateCustomerRequest.Name">
+            <summary>
+            Customer full name
+            </summary>
+        </member>
+        <member name="P:GtMotive.Estimate.Microservice.Api.DTOs.Requests.CreateCustomerRequest.Email">
+            <summary>
+            Customer email address
+            </summary>
+        </member>
+        <member name="P:GtMotive.Estimate.Microservice.Api.DTOs.Requests.CreateCustomerRequest.PhoneNumber">
+            <summary>
+            Customer phone number
+            </summary>
+        </member>
+        <member name="P:GtMotive.Estimate.Microservice.Api.DTOs.Requests.CreateCustomerRequest.LicenseNumber">
+            <summary>
+            Customer driver's license number
+            </summary>
+        </member>
+        <member name="P:GtMotive.Estimate.Microservice.Api.DTOs.Requests.CreateCustomerRequest.LicenseExpiryDate">
+            <summary>
+            Expiry date of the customer's driver's license
+            </summary>
+        </member>
+        <member name="P:GtMotive.Estimate.Microservice.Api.DTOs.Requests.CreateVehicleRequest.VIN">
+            <summary>
+            Vehicle Identification Number (VIN) - 17 characters
+            </summary>
+        </member>
+        <member name="P:GtMotive.Estimate.Microservice.Api.DTOs.Requests.CreateVehicleRequest.LicensePlate">
+            <summary>
+            License plate number
+            </summary>
+        </member>
+        <member name="P:GtMotive.Estimate.Microservice.Api.DTOs.Requests.CreateVehicleRequest.Brand">
+            <summary>
+            Vehicle brand
+            </summary>
+        </member>
+        <member name="P:GtMotive.Estimate.Microservice.Api.DTOs.Requests.CreateVehicleRequest.Model">
+            <summary>
+            Vehicle model
+            </summary>
+        </member>
+        <member name="P:GtMotive.Estimate.Microservice.Api.DTOs.Requests.CreateVehicleRequest.Year">
+            <summary>
+            Vehicle manufacturing year
+            </summary>
+        </member>
+        <member name="P:GtMotive.Estimate.Microservice.Api.DTOs.Requests.CreateVehicleRequest.ManufactureDate">
+            <summary>
+            Manufacture date (cannot be older than 5 years)
+            </summary>
+        </member>
+        <member name="T:GtMotive.Estimate.Microservice.Api.DTOs.Responses.CustomerResponse">
+            <summary>
+            Customer response DTO.
+            </summary>
+        </member>
+        <member name="T:GtMotive.Estimate.Microservice.Api.DTOs.Responses.RentalResponse">
+            <summary>
+            Rental response DTO.
+            </summary>
+        </member>
+        <member name="T:GtMotive.Estimate.Microservice.Api.DTOs.Responses.VehicleResponse">
+            <summary>
+            Vehicle response DTO.
+            </summary>
+        </member>
+        <member name="T:GtMotive.Estimate.Microservice.Api.Filters.BusinessExceptionFilter">
+            <summary>
+            Global exception filter for handling business exceptions.
+            </summary>
+        </member>
+        <member name="M:GtMotive.Estimate.Microservice.Api.Filters.BusinessExceptionFilter.#ctor(Microsoft.Extensions.Logging.ILogger{GtMotive.Estimate.Microservice.Api.Filters.BusinessExceptionFilter})">
+            <summary>
+            Global exception filter for handling business exceptions.
+            </summary>
+        </member>
+        <member name="T:GtMotive.Estimate.Microservice.Api.Filters.ValidationFilter">
+            <summary>
+            Filter for handling model validation errors.
+            </summary>
+        </member>
+        <member name="T:GtMotive.Estimate.Microservice.Api.Presenters.CustomerPresenter">
+            <summary>
+            Presenter for Customer operations.
+            </summary>
+        </member>
+        <member name="T:GtMotive.Estimate.Microservice.Api.Presenters.RentalPresenter">
+            <summary>
+            Presenter for Rental operations.
+            </summary>
+        </member>
+        <member name="T:GtMotive.Estimate.Microservice.Api.Presenters.VehiclePresenter">
+            <summary>
+            Presenter for Vehicle operations.
+            </summary>
+        </member>
+        <member name="T:GtMotive.Estimate.Microservice.Api.Validators.CreateCustomerRequestValidator">
+            <summary>
+            Validator for CreateCustomerRequest.
+            </summary>
+        </member>
+        <member name="T:GtMotive.Estimate.Microservice.Api.Validators.CreateRentalRequestValidator">
+            <summary>
+            Validator for CreateRentalRequest.
+            </summary>
+        </member>
+        <member name="T:GtMotive.Estimate.Microservice.Api.Validators.CreateVehicleRequestValidator">
+            <summary>
+            Validator for CreateVehicleRequest.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<RuleTargetType>Full</RuleTargetType>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" />
+    <PackageReference Include="MediatR" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
+  </ItemGroup>
+
+  <ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+  </ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\GtMotive.Estimate.Microservice.Domain\GtMotive.Estimate.Microservice.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Customers\Queries\" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>    
+    <ShadowCopyBuildOutput>false</ShadowCopyBuildOutput>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)\..\..\..\src\GtMotive.Estimate.Microservice.Api\bin\$(Configuration)\$(TargetFramework)\*.deps.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>%(Filename)%(Extension)</Link>
+    </Content>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Remove="Specs\**" />
+    <EmbeddedResource Remove="Specs\**" />
+    <None Remove="Specs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Infrastructure\appsettings.IntegrationTest.json" />
+    <None Remove="xunit.runner.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="xunit.runner.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Infrastructure\appsettings.IntegrationTest.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Packages sin versiones - controlados por archivo centralizado -->
+    <PackageReference Include="MediatR" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" />
+    <PackageReference Include="Acheve.AspNetCore.TestHost.Security" />
+    <PackageReference Include="Acheve.TestHost" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
+    <PackageReference Include="Moq" Version="4.20.72" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\GtMotive.Estimate.Microservice.Infrastructure\GtMotive.Estimate.Microservice.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\src\GtMotive.Estimate.Microservice.ApplicationCore\GtMotive.Estimate.Microservice.ApplicationCore.csproj" />
+    <ProjectReference Include="..\..\..\src\GtMotive.Estimate.Microservice.Api\GtMotive.Estimate.Microservice.Api.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="xunit.runner.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
